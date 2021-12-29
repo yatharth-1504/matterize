@@ -1,10 +1,10 @@
-const User = require("./model");
+const User = require("../model/index");
 const bcryptjs = require("bcryptjs");
 
 var signup = async (req, res) => {
     try {
-        let user = await User.findOne({username : req.body.username});   
-        if(user) return res.send("Username already taken");
+        let user = await User.findOne({username : req.body.username});
+        if(user) return res.send("Username Already taken");
         user = new User;
         user.username = req.body.username;
         user.email = req.body.email;
@@ -13,7 +13,7 @@ var signup = async (req, res) => {
         return res.send("User registered Succesfully");
     }
     catch (e) {
-        throw new Error(`message : ${e}`);
+        return res.send({message: e});
     }
 }
 

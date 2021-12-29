@@ -1,6 +1,6 @@
 var bcryptjs = require('bcryptjs');
 var jwt = require('jsonwebtoken');
-var User = require("./model");
+var User = require("../model/index");
 
 var signin = async (req, res) => {
     try {

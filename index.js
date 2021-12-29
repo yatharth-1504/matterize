@@ -13,16 +13,8 @@ app.use(bodyparser.urlencoded({ extended: true }));
 
 const mongoose = require("mongoose");
 
-const signup = require('./signup');
-const signin = require('./signin');
-const verifyToken = require('./verifyToken');
-
-app.use(function (req, res) {
-    res.header("Access-Control-Allow-Headers", "x-access-token, Origin, Content-Type, Accept");
-});
-
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost:27017/mtz_db", {
+mongoose.connect("mongodb://localhost:27017/matterize_db", {
     usenewUrlParser: true,  
     useUnifiedTopology: true
 }).then(() => {
@@ -32,9 +24,7 @@ mongoose.connect("mongodb://localhost:27017/mtz_db", {
     process.exit();
 });
 
-app.post("/api/signup", signup);
-app.get("/api/signin", signin);
-app.get("/api/verifyToken", verifyToken);
+require("./routes/index")(app);
 
 app.listen(8000, (err) => {
     if (err) console.log("failed");
