@@ -14,7 +14,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 const mongoose = require("mongoose");
 
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost:27017/matterize_db", {
+mongoose.connect("mongodb://localhost:27017/testdatabase_db", {
     usenewUrlParser: true,  
     useUnifiedTopology: true
 }).then(() => {

@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+
 const User = mongoose.model(
     "User", 
     new mongoose.Schema({
@@ -13,6 +14,10 @@ const User = mongoose.model(
             type : String,
             required: true,
         },
+        role : {
+            type : String,
+            default : 'USER'
+        }
     })
 );
 module.exports = User; 

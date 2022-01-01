@@ -9,4 +9,4 @@ var content = async (req, res) => {
   }
 };
 
-module.exports = content
+module.exports = content;
